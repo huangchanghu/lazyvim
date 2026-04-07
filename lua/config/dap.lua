@@ -1,0 +1,43 @@
+-- return {
+--   {
+--     "mfussenegger/nvim-dap",
+--     dependencies = {
+--       "leoluz/nvim-dap-go", -- 专用于 Go 的 DAP 配置
+--     },
+--     config = function()
+--       local dap = require("dap")
+--       -- 配置 Go 调试适配器（使用 dlv）
+--       dap.adapters.go = {
+--         type = "server",
+--         port = "2345", -- 远程调试时填写远程服务器的端口
+--         host = "10.98.213.188", -- 远程服务器 IP（本地调试可填 127.0.0.1）
+--         executable = {
+--           command = "dlv",
+--           args = { "dap", "-l", "127.0.0.1:2345" }, -- 本地调试时使用
+--         },
+--       }
+--
+--       -- 调试配置（针对 Go）
+--       dap.configurations.go = {
+--         {
+--           type = "go",
+--           name = "Debug (Remote)",
+--           request = "attach",
+--           mode = "remote",
+--           remotePath = "/data/DUOWAN_BUILD/shopline-ads-ads-channel-bff-admin/301/ads-channel-bff-admin",
+--           cwd = "${workspaceFolder}",
+--         },
+--         -- 本地调试配置（可选）
+--         {
+--           type = "go",
+--           name = "Debug (Local)",
+--           request = "launch",
+--           program = "${file}",
+--         },
+--       }
+--
+--       -- 加载 nvim-dap-go 插件（简化配置）
+--       require("dap-go").setup()
+--     end,
+--   },
+-- }
